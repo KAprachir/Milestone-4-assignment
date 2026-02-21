@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+
+    <!--  FONT  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
+    <!--  DaisyUI + Tailwind  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!--  Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="bg-base-200">
+
+    <!--  HEADER SECTION  -->
+    <header class="max-w-5xl mx-auto my-14 space-y-6">
+
+        <!-- Page Title -->
+        <h1 class="text-4xl font-bold text-primary">
+            Job Application Tracker
+        </h1>
+
+        <!--  SUMMARY CARDS  -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Total -->
+            <div class="card bg-base-100 shadow ">
+                <div class="card-body">
+                    <p class="text-lg">Total</p>
+                    <h3 id="total-count" class="text-3xl font-bold">8</h3>
+                </div>
+            </div>
+
+            <!-- Interview -->
+            <div class="card bg-base-100 shadow ">
+                <div class="card-body">
+                    <p class="text-lg">Interview</p>
+                    <h3 id="interview-count" class="text-3xl font-bold text-success">0</h3>
+                </div>
+            </div>
+
+            <!-- Rejected -->
+            <div class="card bg-base-100 shadow ">
+                <div class="card-body">
+                    <p class="text-lg">Rejected</p>
+                    <h3 id="rejected-count" class="text-3xl font-bold text-error">0</h3>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!--  MAIN SECTION  -->
+    <main class="max-w-5xl mx-auto my-10 space-y-6">
+
+        <!-- Top Section -->
+        <div class="flex justify-between items-center">
+            <h2 class="text-xl font-semibold text-primary">Available Jobs</h2>
+            <p class="text-gray-500"><span id="job-count">8</span> Jobs</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="space-x-2">
+            <button class="btn btn-primary btn-sm">All</button>
+            <button class="btn btn-outline btn-success btn-sm">Interview</button>
+            <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+        </div>
+
+        <!--  JOB CARD LIST  -->
+        <div class="space-y-6">
+
+            <!--  CARD 1  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">Mobile First Corp</h2>
+                    <p class="text-gray-600">React Native Developer</p>
+                    <p class="text-sm text-gray-500">
+                        Remote • Full-time • $130,000 - $175,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Build cross-platform mobile applications using React Native.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  CARD 2  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">WebFlow Agency</h2>
+                    <p class="text-gray-600">Web Designer & Developer</p>
+                    <p class="text-sm text-gray-500">
+                        Los Angeles, CA • Part-time • $80,000 - $120,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Create stunning web experiences for high-profile clients.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  CARD 3  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">TechNova Ltd</h2>
+                    <p class="text-gray-600">Frontend Developer</p>
+                    <p class="text-sm text-gray-500">
+                        New York, NY • Full-time • $95,000 - $120,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Develop responsive UI using modern JavaScript frameworks.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  CARD 4  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">CodeCrafters</h2>
+                    <p class="text-gray-600">Backend Engineer</p>
+                    <p class="text-sm text-gray-500">
+                        London, UK • Hybrid • $110,000 - $150,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Build scalable APIs and manage enterprise databases.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  CARD 5  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">Pixel Studio</h2>
+                    <p class="text-gray-600">UI/UX Designer</p>
+                    <p class="text-sm text-gray-500">
+                        Toronto, CA • Contract • $70,000 - $95,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Design intuitive user interfaces and experiences.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  CARD 6  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">CloudNet</h2>
+                    <p class="text-gray-600">DevOps Engineer</p>
+                    <p class="text-sm text-gray-500">
+                        Remote • Full-time • $115,000 - $140,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Maintain CI/CD pipelines and cloud infrastructure.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  CARD 7  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">DataSphere</h2>
+                    <p class="text-gray-600">Data Analyst</p>
+                    <p class="text-sm text-gray-500">
+                        Berlin, DE • Hybrid • $85,000 - $105,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Analyze business data and prepare performance reports.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--  CARD 8  -->
+            <div class="card bg-base-100 shadow  relative">
+                <button class="absolute top-4 right-4 text-gray-400 hover:text-error">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <div class="card-body">
+                    <h2 class="card-title">CyberSecure Inc</h2>
+                    <p class="text-gray-600">Cybersecurity Specialist</p>
+                    <p class="text-sm text-gray-500">
+                        Sydney, AU • Full-time • $120,000 - $160,000
+                    </p>
+                    <span class="badge badge-outline w-fit">NOT APPLIED</span>
+                    <p class="text-gray-600 pt-2">
+                        Monitor security threats and protect company systems.
+                    </p>
+                    <div class="pt-4 space-x-3">
+                        <button class="btn btn-success btn-sm">Interview</button>
+                        <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
