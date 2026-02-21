@@ -41,7 +41,7 @@
             <div class="card bg-base-100 shadow ">
                 <div class="card-body">
                     <p class="text-lg">Total</p>
-                    <h3 id="total-count" class="text-3xl font-bold">8</h3>
+                    <h3 id="total-count" class="text-3xl font-bold"></h3>
                 </div>
             </div>
 
@@ -75,13 +75,13 @@
 
         <!-- Filter Buttons -->
         <div class="space-x-2">
-            <button class="btn btn-primary btn-sm">All</button>
-            <button class="btn btn-outline btn-success btn-sm">Interview</button>
-            <button class="btn btn-outline btn-error btn-sm">Rejected</button>
+            <button id="all-btn" class="btn btn-primary btn-sm">All</button>
+            <button id="interview-btn" class="btn btn-outline btn-success btn-sm">Interview</button>
+            <button id="rejected-btn" class="btn btn-outline btn-error btn-sm">Rejected</button>
         </div>
 
         <!--  JOB CARD LIST  -->
-        <div class="space-y-6">
+        <div id="card-container" class="space-y-6">
 
             <!--  CARD 1  -->
             <div class="card bg-base-100 shadow  relative">
