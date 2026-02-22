@@ -64,6 +64,7 @@
         </div>
     </header>
 
+
     <!--  MAIN SECTION  -->
     <main class="max-w-5xl mx-auto my-10 space-y-6">
 
@@ -75,9 +76,13 @@
 
         <!-- Filter Buttons -->
         <div class="space-x-2">
-            <button id="all-btn" class="btn btn-primary btn-sm">All</button>
-            <button id="interview-btn" class="btn btn-outline btn-success btn-sm">Interview</button>
-            <button id="rejected-btn" class="btn btn-outline btn-error btn-sm">Rejected</button>
+            <button onclick="toogleStyle('all-btn')" id="all-btn" class="btn btn-primary btn-sm">All</button>
+
+            <button onclick="toogleStyle('interview-btn')" id="interview-btn"
+                class="btn btn-outline btn-success btn-sm">Interview</button>
+
+            <button onclick="toogleStyle('rejected-btn')" id="rejected-btn"
+                class="btn btn-outline btn-error btn-sm">Rejected</button>
         </div>
 
         <!--  JOB CARD LIST  -->
@@ -270,7 +275,20 @@
         </div>
 
     </main>
+
+
+    <!-- no job section -->
+    <section id="no-job" class="max-w-5xl mx-auto my-10 space-y-6">
+        <div class="p-24 justify-items-center bg-base-100 shadow space-y-2 rounded-lg">
+            <img src="assets/jobs.png" alt="">
+            <h1 class="text-2xl font-semibold text-center">No jobs available</h1>
+            <p class="text-center text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
+
+    </section>
     <script src="script.js"></script>
+
+
 </body>
 
 </html>
