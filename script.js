@@ -16,6 +16,9 @@ const allBtn = document.getElementById("all-btn");
 const interviewBtn = document.getElementById("interview-btn");
 const rejectedBtn = document.getElementById("rejected-btn");
 
+// delete btn
+const deleteBtn = document.getElementsByClassName("delete-btn");
+
 function calculateCount() {
   totalCount.innerText = cardSection.children.length;
   // interviewCount.innerText = interviewList.children.length;
@@ -38,11 +41,21 @@ allBtn.addEventListener("click", function () {
   noJob.classList.add("hidden");
   cardSection.classList.remove("hidden");
 });
-interviewBtn.addEventListener("click", function (id) {
+interviewBtn.addEventListener("click", function () {
   cardSection.classList.add("hidden");
   noJob.classList.remove("hidden");
 });
-rejectedBtn.addEventListener("click", function (id) {
+rejectedBtn.addEventListener("click", function () {
   cardSection.classList.add("hidden");
   noJob.classList.remove("hidden");
 });
+
+// delete button functinality
+for (let btn of deleteBtn) {
+  btn.addEventListener("click", function () {
+    const card = btn.parentElement;
+    card.remove();
+  });
+}
+
+// get card btn
