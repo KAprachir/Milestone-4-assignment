@@ -104,7 +104,7 @@ allBtn.addEventListener("click", function () {
   for (let card of cardSection.children) {
     card.classList.remove("hidden");
   }
-
+  noJob.classList.add("hidden");
   calculateCount("all");
 });
 // Interview Buttons
@@ -120,6 +120,11 @@ interviewBtn.addEventListener("click", function () {
     } else {
       card.classList.add("hidden");
     }
+  }
+  if (!hasJob) {
+    noJob.classList.remove("hidden");
+  } else {
+    noJob.classList.add("hidden");
   }
 
   calculateCount("interview");
@@ -138,6 +143,10 @@ rejectedBtn.addEventListener("click", function () {
       card.classList.add("hidden");
     }
   }
-
+  if (!hasJob) {
+    noJob.classList.remove("hidden");
+  } else {
+    noJob.classList.add("hidden");
+  }
   calculateCount("rejected");
 });
