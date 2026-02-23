@@ -1,5 +1,6 @@
-const interviewList = [];
-const rejectedList = [];
+let interviewList = [];
+let rejectedList = [];
+console.log(interviewList);
 
 // containers
 const cardSection = document.getElementById("card-container");
@@ -15,18 +16,17 @@ const rejectedCount = document.getElementById("rejected-count");
 const allBtn = document.getElementById("all-btn");
 const interviewBtn = document.getElementById("interview-btn");
 const rejectedBtn = document.getElementById("rejected-btn");
-
 // delete btn
 const deleteBtn = document.getElementsByClassName("delete-btn");
 
 function calculateCount() {
   totalCount.innerText = cardSection.children.length;
-  // interviewCount.innerText = interviewList.children.length;
-  // rejectedCount.innerText = rejectedList.children.length;
+  interviewCount.innerText = interviewList.length;
+  rejectedCount.innerText = rejectedList.length;
 }
 calculateCount();
 
-// toogling style
+// toogling color style
 function toogleStyle(id) {
   allBtn.classList.add("btn-outline");
   interviewBtn.classList.add("btn-outline");
@@ -36,26 +36,16 @@ function toogleStyle(id) {
   seletedBtn.classList.remove("btn-outline");
 }
 
-// no job adding in filter button
-allBtn.addEventListener("click", function () {
-  noJob.classList.add("hidden");
-  cardSection.classList.remove("hidden");
-});
-interviewBtn.addEventListener("click", function () {
-  cardSection.classList.add("hidden");
-  noJob.classList.remove("hidden");
-});
-rejectedBtn.addEventListener("click", function () {
-  cardSection.classList.add("hidden");
-  noJob.classList.remove("hidden");
-});
-
 // delete button functinality
-for (let btn of deleteBtn) {
-  btn.addEventListener("click", function () {
-    const card = btn.parentElement;
-    card.remove();
-  });
-}
+cardSection.addEventListener("click", function (e) {
+  if (e.target.closest(".delete-btn")) {
+    const card = e.target.closest(".card");
 
-// get card btn
+    interviewList = interviewList.filter((c) => c !== card);
+    rejectedList = rejectedList.filter((c) => c !== card);
+
+    card.remove();
+
+    calculateCount();
+  }
+});
