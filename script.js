@@ -49,3 +49,37 @@ cardSection.addEventListener("click", function (e) {
     calculateCount();
   }
 });
+
+
+//creating array and badge change
+cardSection.addEventListener("click", function (e) {
+  const card = e.target.closest(".card");
+  if (!card) return;
+  const badge = card.querySelector(".badge");
+  // Interview Btn Click
+  if (e.target.classList.contains("iv-btn")) {
+    if (!interviewList.includes(card)) {
+      interviewList.push(card);
+    }
+    // remove from rejected list
+    rejectedList = rejectedList.filter((c) => c !== card);
+    badge.innerText = "Interview";
+    badge.className = "badge badge-success w-fit";
+    calculateCount();
+  }
+
+  // Rejected Click
+  if (e.target.classList.contains("rj-btn")) {
+    if (!rejectedList.includes(card)) {
+      rejectedList.push(card);
+    }
+
+    // remove from interview list
+    interviewList = interviewList.filter((c) => c !== card);
+
+    badge.innerText = "REJECTED";
+    badge.className = "badge badge-error w-fit";
+
+    calculateCount();
+  }
+});
