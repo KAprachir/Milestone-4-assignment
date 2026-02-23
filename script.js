@@ -19,12 +19,26 @@ const rejectedBtn = document.getElementById("rejected-btn");
 // delete btn
 const deleteBtn = document.getElementsByClassName("delete-btn");
 
-function calculateCount() {
-  totalCount.innerText = cardSection.children.length;
-  interviewCount.innerText = interviewList.length;
-  rejectedCount.innerText = rejectedList.length;
+// calculation of jobs
+function calculateCount(activeTab = "all") {
+  const total = cardSection.children.length;
+  const interviewTotal = interviewList.length;
+  const rejectedTotal = rejectedList.length;
+
+  totalCount.innerText = total;
+  interviewCount.innerText = interviewTotal;
+  rejectedCount.innerText = rejectedTotal;
+
+  const jobCountText = document.getElementById("job-count");
+
+  if (activeTab === "all") {
+    jobCountText.innerText = total;
+  } else if (activeTab === "interview") {
+    jobCountText.innerText = `${interviewTotal} of ${total}`;
+  } else if (activeTab === "rejected") {
+    jobCountText.innerText = `${rejectedTotal} of ${total}`;
+  }
 }
-calculateCount();
 
 // toogling color style
 function toogleStyle(id) {
@@ -86,15 +100,19 @@ cardSection.addEventListener("click", function (e) {
 // Filtering Buttons toggleing
 allBtn.addEventListener("click", function () {
   toogleStyle("all-btn");
+
   for (let card of cardSection.children) {
     card.classList.remove("hidden");
   }
-  noJob.classList.add("hidden");
+
+  calculateCount("all");
 });
 // Interview Buttons
 interviewBtn.addEventListener("click", function () {
   toogleStyle("interview-btn");
+
   let hasJob = false;
+
   for (let card of cardSection.children) {
     if (interviewList.includes(card)) {
       card.classList.remove("hidden");
@@ -103,19 +121,23 @@ interviewBtn.addEventListener("click", function () {
       card.classList.add("hidden");
     }
   }
-  noJob.classList.toggle("hidden", hasJob);
+
+  calculateCount("interview");
 });
 // Rejected Button
 rejectedBtn.addEventListener("click", function () {
   toogleStyle("rejected-btn");
-  let hasjob = false;
+
+  let hasJob = false;
+
   for (let card of cardSection.children) {
     if (rejectedList.includes(card)) {
       card.classList.remove("hidden");
-      hasjob = true;
+      hasJob = true;
     } else {
       card.classList.add("hidden");
     }
   }
-  noJob.classList.toggle("hidden", hasjob);
+
+  calculateCount("rejected");
 });
