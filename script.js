@@ -50,7 +50,6 @@ cardSection.addEventListener("click", function (e) {
   }
 });
 
-
 //creating array and badge change
 cardSection.addEventListener("click", function (e) {
   const card = e.target.closest(".card");
@@ -82,4 +81,41 @@ cardSection.addEventListener("click", function (e) {
 
     calculateCount();
   }
+});
+
+// Filtering Buttons toggleing
+allBtn.addEventListener("click", function () {
+  toogleStyle("all-btn");
+  for (let card of cardSection.children) {
+    card.classList.remove("hidden");
+  }
+  noJob.classList.add("hidden");
+});
+// Interview Buttons
+interviewBtn.addEventListener("click", function () {
+  toogleStyle("interview-btn");
+  let hasJob = false;
+  for (let card of cardSection.children) {
+    if (interviewList.includes(card)) {
+      card.classList.remove("hidden");
+      hasJob = true;
+    } else {
+      card.classList.add("hidden");
+    }
+  }
+  noJob.classList.toggle("hidden", hasJob);
+});
+// Rejected Button
+rejectedBtn.addEventListener("click", function () {
+  toogleStyle("rejected-btn");
+  let hasjob = false;
+  for (let card of cardSection.children) {
+    if (rejectedList.includes(card)) {
+      card.classList.remove("hidden");
+      hasjob = true;
+    } else {
+      card.classList.add("hidden");
+    }
+  }
+  noJob.classList.toggle("hidden", hasjob);
 });
