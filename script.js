@@ -1,6 +1,5 @@
 let interviewList = [];
 let rejectedList = [];
-console.log(interviewList);
 
 // containers
 const cardSection = document.getElementById("card-container");
